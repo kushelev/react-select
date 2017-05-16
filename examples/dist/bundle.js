@@ -1984,7 +1984,7 @@ var Select = (0, _createReactClass2['default'])({
 					)
 				);
 			});
-		} else if (!this.state.inputValue) {
+		} else {
 			if (isOpen) onClick = null;
 			return _react2['default'].createElement(
 				ValueComponent,
@@ -2183,6 +2183,8 @@ var Select = (0, _createReactClass2['default'])({
 	},
 
 	getFocusableOptionIndex: function getFocusableOptionIndex(selectedOption) {
+		var _this7 = this;
+
 		var options = this._visibleOptions;
 		if (!options.length) return null;
 
@@ -2190,7 +2192,7 @@ var Select = (0, _createReactClass2['default'])({
 		if (focusedOption && !focusedOption.disabled) {
 			var focusedOptionIndex = -1;
 			options.some(function (option, index) {
-				var isOptionEqual = option.value === focusedOption.value;
+				var isOptionEqual = option[_this7.props.valueKey] === focusedOption[_this7.props.valueKey];
 				if (isOptionEqual) {
 					focusedOptionIndex = index;
 				}
@@ -2208,7 +2210,7 @@ var Select = (0, _createReactClass2['default'])({
 	},
 
 	renderOuter: function renderOuter(options, valueArray, focusedOption) {
-		var _this7 = this;
+		var _this8 = this;
 
 		var menu = this.renderMenu(options, valueArray, focusedOption);
 		if (!menu) {
@@ -2218,12 +2220,12 @@ var Select = (0, _createReactClass2['default'])({
 		return _react2['default'].createElement(
 			'div',
 			{ ref: function (ref) {
-					return _this7.menuContainer = ref;
+					return _this8.menuContainer = ref;
 				}, className: 'Select-menu-outer', style: this.props.menuContainerStyle },
 			_react2['default'].createElement(
 				'div',
 				{ ref: function (ref) {
-						return _this7.menu = ref;
+						return _this8.menu = ref;
 					}, role: 'listbox', className: 'Select-menu', id: this._instancePrefix + '-list',
 					style: this.props.menuStyle,
 					onScroll: this.handleMenuScroll,
@@ -2234,7 +2236,7 @@ var Select = (0, _createReactClass2['default'])({
 	},
 
 	render: function render() {
-		var _this8 = this;
+		var _this9 = this;
 
 		var valueArray = this.getValueArray(this.props.value);
 		var options = this._visibleOptions = this.filterOptions(this.props.multi ? this.getValueArray(this.props.value) : null);
@@ -2273,7 +2275,7 @@ var Select = (0, _createReactClass2['default'])({
 		return _react2['default'].createElement(
 			'div',
 			{ ref: function (ref) {
-					return _this8.wrapper = ref;
+					return _this9.wrapper = ref;
 				},
 				className: className,
 				style: this.props.wrapperStyle },
@@ -2281,7 +2283,7 @@ var Select = (0, _createReactClass2['default'])({
 			_react2['default'].createElement(
 				'div',
 				{ ref: function (ref) {
-						return _this8.control = ref;
+						return _this9.control = ref;
 					},
 					className: 'Select-control',
 					style: this.props.style,
