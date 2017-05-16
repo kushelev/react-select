@@ -2028,7 +2028,7 @@ var Select = (0, _createReactClass2['default'])({
 				this.renderClear(),
 				this.renderArrow()
 			),
-			isOpen ? this.renderOuter(options, !this.props.multi ? valueArray : null, focusedOption) : null
+			this.renderOuter(options, !this.props.multi ? valueArray : null, focusedOption)
 		);
 	}
 

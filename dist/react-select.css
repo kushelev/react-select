@@ -215,6 +215,14 @@
   overflow: hidden;
   float: left;
 }
+.Select--single.is-searchable .Select-input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.1s linear;
+}
 .Select--single.is-searchable.is-open .Select-control {
   overflow: visible;
   border-bottom: 0;
@@ -229,6 +237,8 @@
   border: #ccc solid 1px;
   z-index: 1;
   background-color: #fff;
+  transform: scaleY(1);
+  transition: transform 0.1s linear;
 }
 @-webkit-keyframes Select-animation-fadeIn {
   from {
@@ -261,6 +271,13 @@
   width: 100%;
   z-index: 1;
   -webkit-overflow-scrolling: touch;
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.1s ease-in-out;
+}
+.is-open .Select-menu-outer {
+  transform: scaleY(1);
+  transition: transform 0.2s ease-in-out 0.1s;
 }
 .Select--single.is-searchable .Select-menu-outer {
   top: 200%;
