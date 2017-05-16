@@ -230,6 +230,7 @@
 	text-align: center;
 	vertical-align: middle;
 	width: (@select-arrow-width * 5);
+  	line-height: @select-arrow-width;
 	padding-right: @select-arrow-width;
 }
 
@@ -258,6 +259,25 @@
   clip: rect(0,0,0,0);
   overflow: hidden;
   float: left;
+}
+
+.Select--single.is-searchable.is-open {
+  .Select-control {
+	overflow: visible;
+	border-bottom: 0;
+  }
+
+  .Select-input {
+	position: absolute;
+	opacity: 1;
+	height: @select-input-height;
+	width: ~"calc(100% + @{select-input-border-double-width})";
+	left: -@select-input-border-width;
+	top: (@select-input-height - @select-input-border-width);
+	border: @select-input-border-color solid @select-input-border-width;
+	z-index: 1;
+	background-color: @select-input-bg;
+  }
 }
 
 // Animation
