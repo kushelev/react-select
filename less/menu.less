@@ -24,6 +24,23 @@
 	width: 100%;
 	z-index: @select-menu-zindex;
 	-webkit-overflow-scrolling: touch;
+
+  	transform: scaleY(0);
+  	transform-origin: top;
+  	transition: transform 0.1s ease-in-out;
+}
+
+.is-open {
+  .Select-menu-outer {
+	transform: scaleY(1);
+	transition: transform 0.2s ease-in-out 0.1s;
+  }
+}
+
+.Select--single.is-searchable {
+  .Select-menu-outer {
+	top: 200%;
+  }
 }
 
 
