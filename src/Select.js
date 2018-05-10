@@ -1183,7 +1183,7 @@ class Select extends React.Component {
 					{this.renderArrow()}
 				</div>
 				{/*{isOpen ? this.renderOuter(options, valueArray, focusedOption) : null}*/}
-				{this.renderOuter(options, !this.props.multi ? valueArray : null, focusedOption)}
+				{this.renderOuter(options, valueArray, focusedOption)}
 			</div>
 		);
 	}

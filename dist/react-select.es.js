@@ -1882,7 +1882,7 @@ var Select$1 = function (_React$Component) {
 					this.renderClear(),
 					this.renderArrow()
 				),
-				this.renderOuter(options, !this.props.multi ? valueArray : null, focusedOption)
+				this.renderOuter(options, valueArray, focusedOption)
 			);
 		}
 	}]);
