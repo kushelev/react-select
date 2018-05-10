@@ -833,7 +833,7 @@ class Select extends React.Component {
 					</ValueComponent>
 				);
 			});
-		} else if (shouldShowValue(this.state, this.props)) {
+		} else {
 			if (isOpen) onClick = null;
 			return (
 				<ValueComponent
@@ -1182,7 +1182,8 @@ class Select extends React.Component {
 					{this.renderClear()}
 					{this.renderArrow()}
 				</div>
-				{isOpen ? this.renderOuter(options, valueArray, focusedOption) : null}
+				{/*{isOpen ? this.renderOuter(options, valueArray, focusedOption) : null}*/}
+				{this.renderOuter(options, !this.props.multi ? valueArray : null, focusedOption)}
 			</div>
 		);
 	}

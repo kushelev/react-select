@@ -655,22 +655,6 @@ var stringOrNumber = PropTypes.oneOfType([PropTypes.string, PropTypes.number]);
 
 var instanceId = 1;
 
-var shouldShowValue = function shouldShowValue(state, props) {
-	var inputValue = state.inputValue,
-	    isPseudoFocused = state.isPseudoFocused,
-	    isFocused = state.isFocused;
-	var onSelectResetsInput = props.onSelectResetsInput;
-
-
-	if (!inputValue) return true;
-
-	if (!onSelectResetsInput) {
-		return !(!isFocused && isPseudoFocused || isFocused && !isPseudoFocused);
-	}
-
-	return false;
-};
-
 var shouldShowPlaceholder = function shouldShowPlaceholder(state, props, isOpen) {
 	var inputValue = state.inputValue,
 	    isPseudoFocused = state.isPseudoFocused,
@@ -1543,7 +1527,7 @@ var Select$1 = function (_React$Component) {
 						)
 					);
 				});
-			} else if (shouldShowValue(this.state, this.props)) {
+			} else {
 				if (isOpen) onClick = null;
 				return React__default.createElement(
 					ValueComponent,
@@ -1903,7 +1887,7 @@ var Select$1 = function (_React$Component) {
 					this.renderClear(),
 					this.renderArrow()
 				),
-				isOpen ? this.renderOuter(options, valueArray, focusedOption) : null
+				this.renderOuter(options, !this.props.multi ? valueArray : null, focusedOption)
 			);
 		}
 	}]);
